@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+<body>
+  {% block header %}
+  {{ super() }}
+  {% endblock %}
+
+  {% block content %}
+
+  <div class="container text-center">
+    <div class="col-md-6 ">
+      <form action="/countries/update/{{contact.0}}" method="POST">
+        <div class="form-floating mb-4 mt-3">
+          <input type="text" name="f_country" placeholder="Country" class="form-control mb-2" id="floatingInput"
+            value="{{contact.1}}">
+          <button type="submit" class="btn btn-primary" id="sen">Edit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {% endblock %}
+
+  {% block footer %}
+  {{ super() }}
+  {% endblock %}
+</body>

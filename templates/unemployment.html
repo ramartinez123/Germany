@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+<body>
+    {% block header %}
+    {{ super() }}
+    {% endblock %}
+
+    {% block content %}
+
+    <div class="container col-md-12 mb-2">
+        <div class="row row-cols">
+            <div class="col-md-4 mb-2">
+                <table class="table table-striped text-right">
+                    <thead>
+                        <tr class="text-center font-weight-bold">
+                            <td>State</td>
+                            <td>Unemployment rate </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for person in unemployment %}
+                        <tr>
+                            <td class="text-left">{{ person.0}}</td>
+                            <td>{{ person.1}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-8 mt-4">
+                <div id="grafico3">
+                    <canvas id="grafica3"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let arrunemployment = {{ unemployment | tojson}}                                                      
+    </script>
+
+
+    {% endblock %}
+
+    {% block footer %}
+    {{ super() }}
+    {% endblock %}
+</body>
+
+
+</html>

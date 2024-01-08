@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+<body>
+  {% block header %}
+    {{ super() }}
+  {% endblock %}
+
+  {% block content %}
+ 
+  <div class="container text-center">
+
+      <div class="col-md-6">
+        <form action='/countries/add_contact' method="POST">
+          <div class="form-floating mb-4 mt-3">        
+            <input type="text" class="form-control mb-2" id="floatingInput" name="f_country" placeholder="Country">
+            <button type="submit" class="btn btn-primary" id="sen">Send</button>
+          </div>
+        </form>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td>Country</td>
+              <td>Options</td>
+            </tr>
+          </thead>
+          <tbody>
+            {% for country in countries %}
+            <tr>
+              <td class= "col-md-3">{{ country.country}}</td>
+              <td class= "col-md-3">
+                <a class="btn btn-primary" href="/countries/edit/{{country.id_country}}" role="button">Edit </a>
+                <a class="btn btn-danger" href="/countries/delete/{{country.id_country}}" role="button">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+  </div>
+
+  {% endblock %}
+
+  {% block footer %}
+   {{ super() }}
+  {% endblock %}
+</body>>
+
+</html>

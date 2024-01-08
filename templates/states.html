@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+<body>
+  {% block header %}
+    {{ super() }}
+  {% endblock %}
+
+  {% block content %}
+
+    <div class="container text-center">
+        
+        <div class="col-md-6 ">
+                <form action='/states/add_contact' method="POST">
+                    <div class="form-floating mb-4 mt-3">
+                        <input type="text" class="form-control mb-2" id="floatingInput" name="f_state"
+                            placeholder="State">
+                        <input type="number" class="form-control mb-2" id="floatingInput" name="f_idCountry"
+                            placeholder="Country">
+                            <button type="submit" class="btn btn-primary" id="sen2">Send</button>
+                    </div>
+                </form>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>State</td>
+                            <td>Country</td>
+                            <td>Options</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for state in states %}
+                        <tr>
+                            <td class="col-md-2">{{ state.state}}</td>
+                            <td class="col-md-1">{{ state.id_country}}</td>
+                            <td class="col-md-3">
+                                <a class="btn btn-primary " href="/states/edit/{{state.id_state}}" role="button">Edit</a>
+                                <a class="btn btn-danger" href="/states/delete/{{state.id_state}}" role="button">Delete</a>
+                            </td>      
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        
+        
+    </div>
+  {% endblock %}
+  {% block footer %}  
+    {{ super() }}
+  {% endblock %}
+</body>>
+     
+</html>

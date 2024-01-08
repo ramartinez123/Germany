@@ -1,0 +1,26 @@
+<html>
+
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+<body>
+  {% block header %}
+    {{ super() }}
+  {% endblock %}
+
+  {% block content %}
+  <br>
+  <center><H3> Error 404 </H3></center><br><br>   
+  <center><H3> The page has not found</H3></center>
+  <br><br>
+  {% endblock %}
+
+  {% block footer %}
+    {{ super() }}
+  {% endblock %}
+  
+</body>
+
+</html>

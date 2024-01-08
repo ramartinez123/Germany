@@ -1,0 +1,70 @@
+<html>
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+<body>
+  {% block header %}
+  {{ super() }}
+  {% endblock %}
+
+  {% block content %}
+  <div class="container text-center">
+
+    <div class="col-8">
+      <form method="POST">
+
+        <div class="row row-cols-3 mt-3">
+
+          {{ form.hidden_tag() }}
+
+          <div class="col-sm-3">
+            {{ form.name.label }}
+          </div>
+
+          <div class="col-sm-7">
+            {{ form.name(id='my-text-field') }}
+          </div>
+        </div>
+
+        <div class="row row-cols-3 mt-3">
+
+          <div class="col-sm-3">
+            {{ form.password.label }} 
+          </div>
+
+          <div class="col-sm-7">
+             {{ form.password(id='my-text-field') }}
+          </div>
+        </div>
+
+        <div class="row row-cols-3 mt-3">
+
+          <div class="col-sm-5">
+              {{ form.remember_me.label }} {{ form.remember_me(id='my-text-field') }}
+          </div>
+
+          <div class="col-sm-5  ">
+             {{ form.submit() }} 
+          </div>
+        </div>
+
+      </form>
+      <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
+
+    </div>
+  </div>
+
+  </div>
+
+  {% endblock %}
+
+  {% block footer %}
+  {{ super() }}
+  {% endblock %}
+
+</body>
+
+
+</html>

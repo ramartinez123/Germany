@@ -40,7 +40,8 @@
             <li class="nav-item dropdown ">
               <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> Reportes </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ url_for('populationSx')}} ">Poblacion por sexo </a></li>
+                <li><a class="dropdown-item" href="{{ url_for('populationSx')}}" onclick="formatNumber()">Poblacion por sexo </a></li>
+                <li><a class="dropdown-item" href="{{ url_for('populationAg')}}" onclick="formatNumber()">Poblacion por edad  </a></li>
                 <li></li><a class="dropdown-item" href="{{ url_for('unemployment')}} ">Desempleo por Estado</a>
               </ul>
             </li>
@@ -128,6 +129,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.0/Chart.bundle.js"></script>
     <script defer src="{{ url_for('static', filename='js/script.js')}}"></script>
     <script defer src="{{ url_for('static', filename='js/script2.js')}}"></script>
+    <script defer src="{{ url_for('static', filename='js/script3.js')}}"></script>
+    <script defer src="{{ url_for('static', filename='js/script4.js')}}"></script>
     <!--  -->
     {% endblock %}
   </footer>

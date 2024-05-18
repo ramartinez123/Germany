@@ -7,10 +7,12 @@ def population():
     data= Queries.Query()
     return render_template("population.html", population = data) 
 
+# Poblacion por sexo
 @app.route('/populationSx') 
 def populationSx():
     data= Queries.QuerySx()
-    return render_template("populationSx.html", population = data) 
+    data1= Queries.QuerySxGra()
+    return render_template("populationSx.html", populations = data, populationsGra = data1 ) 
     
 @app.route('/populationAg')
 def populationAg():

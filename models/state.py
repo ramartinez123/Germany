@@ -1,24 +1,23 @@
 class States:
     def __init__(self,id_state,state,id_country):
-        self.id_state = id_state
-        self.state = state
-        self.id_country = id_country
+        self._id_state = id_state
+        self._state = state
+        self._id_country = id_country
 
     def getid_state(self):
-        return self.id_state
+        return self._id_state
 
     def setid_state(self,x):
-        self.id_state =x
+        self._id_state =x
 
     def getstate(self):
-        return self.state
+        return self._state
 
     def setstate(self,x):
-        self.state =x
+        self._state =x
 
-    
     def getid_country(self):
-        return self.id_country
+        return self._id_country
 
     def setidcontry(self,x):
-        self.id_country =x 
+        self._id_country =x 

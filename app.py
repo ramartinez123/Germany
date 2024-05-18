@@ -23,4 +23,4 @@ from models.errors import *
 from models.user import users
 
 if __name__ == '__main__':
-    app.run(port = 3000, debug = True)
+    app.run(port = 3002, debug = True)

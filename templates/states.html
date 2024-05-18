@@ -34,11 +34,11 @@
                     <tbody>
                         {% for state in states %}
                         <tr>
-                            <td class="col-md-2">{{ state.state}}</td>
-                            <td class="col-md-1">{{ state.id_country}}</td>
+                            <td class="col-md-2">{{ state.getstate()}}</td>
+                            <td class="col-md-1">{{ state.getid_country()}}</td>
                             <td class="col-md-3">
-                                <a class="btn btn-primary " href="/states/edit/{{state.id_state}}" role="button">Edit</a>
-                                <a class="btn btn-danger" href="/states/delete/{{state.id_state}}" role="button">Delete</a>
+                                <a class="btn btn-primary " href="/states/edit/{{state.getid_state()}}" role="button">Edit</a>
+                                <a class="btn btn-danger" href="/states/delete/{{state.getid_state()}}" role="button">Delete</a>
                             </td>      
                         </tr>
                         {% endfor %}

@@ -17,8 +17,8 @@
       <div class="col-md-8">
         <table class="table table-striped text-right" id="my_font">
           <thead>
-            <tr class="text-center font-weight-bold">
-              <td>State</td>
+            <tr class="text-right font-weight-bold">
+              <td class ="text-left">State</td>
               <td>Women </td>
               <td>Men </td>
               <td>Total </td>
@@ -26,12 +26,12 @@
           </thead>
           <tbody>
 
-            {% for person in population %}
+            {% for population in populations %}
             <tr>
-              <td class="text-left">{{ person.0}}</td>
-              <td>{{ person.2}}</td>
-              <td>{{ person.3}}</td>
-              <td>{{ person.4}}</td>
+              <td class="text-left">{{ population.getstate()}}</td>
+              <td>{{"{:,}".format(population.getfemale())}}</td>
+              <td>{{"{:,}".format(population.getmale())}}</td> 
+              <td>{{"{:,}".format(population.gettotal())}}</td>
             </tr>
 
             {% endfor %}
@@ -39,9 +39,13 @@
         </table>
       </div>
 
+      <script>
+        let arrpopulation = {{ populationsGra | tojson}}                                                      
+      </script>
+
       <div class="col-md-4 ">
         <div class="row justify-content-center mt-4 mb-2 " >
-          <h4>Males by State</h4>
+          <h4>Northrein by Genre</h4>
         </div>
 
         <div class="row">
@@ -51,7 +55,7 @@
         </div>
 
         <div class="row justify-content-center mt-4 mb-2">
-          <h4> Females by State</h4>
+          <h4> Bayern by Genre</h4>
         </div>
 
         <div class="row">
@@ -63,9 +67,8 @@
     </div>
   </div>
 
-  <script>
-    let arrpopulation = {{ population | tojson}}                                                      
-  </script>
+
+  
   {% endblock %}
 
   {% block footer %}

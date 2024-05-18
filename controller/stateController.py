@@ -3,13 +3,10 @@ from app import app
 from dao.stateDao import Queries
 from models.state import States
 
-
-
 @app.route('/states')
 def states():
     data= Queries.Query2()
     return render_template("states.html", states = data) 
-
 
 @app.route('/states/add_contact', methods=['POST'])
 def add_state():
@@ -23,7 +20,6 @@ def add_state():
 @app.route('/states/edit/<id>')
 def get_state(id):
     state= States (id,"","")
-    print(state)
     data=Queries.Update1(state)
     return render_template("edit_states.html", contact =data[0])
 
@@ -38,6 +34,7 @@ def update_state(id):
 @app.route('/states/delete/<id>')
 def delete_state(id):
     state = States (id,"","")
+    print(state)
     Queries.Delete(state) 
     return redirect(url_for("states"))  
     

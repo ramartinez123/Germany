@@ -1,4 +1,3 @@
-from app import mysql
 from config.conf import Inic
 
 class Queries:      

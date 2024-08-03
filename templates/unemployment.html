@@ -10,38 +10,54 @@
 
     {% block content %}
 
-    <div class="container col-md-12 mb-2">
-        <div class="row row-cols">
-            <div class="col-md-4 mb-2">
-                <table class="table table-striped text-right">
-                    <thead>
-                        <tr class="text-center font-weight-bold">
-                            <td class="text-left ">State</td>
-                            <td>Unemployment rate </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for person in unemployment %}
-                        <tr>
-                            <td class="text-left">{{ person.0}}</td>
-                            <td>{{ person.1}}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header text-white">
+                        <h5 class="card-title">Unemployment by State </h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped text-right">
+                            <thead>
+                                <tr>
+                                    <th class="text-left ">State</th>
+                                    <th>Unemployment rate </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for person in unemployment %}
+                                <tr>
+                                    <td class="text-left">{{ person.0}}</td>
+                                    <td>{{ person.1}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-md-8 mt-4">
-                <div id="grafico3">
-                    <canvas id="grafica3"></canvas>
+            <script>
+                let arrunemployment = {{ unemployment | tojson}}                                                      
+            </script>
+
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-header text-white" >
+                        <h5 class="card-title">Unemployment</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container" id="chart-container4" >
+                            <canvas id="grafica3" ></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        let arrunemployment = {{ unemployment | tojson}}                                                      
-    </script>
+
 
 
     {% endblock %}

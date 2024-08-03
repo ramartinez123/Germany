@@ -7,73 +7,67 @@
   {% block header %}
   {{ super() }}
   {% endblock %}
-
   {% block content %}
 
-
-
-  <div class="container text-center col-md-12">
-    <div class="row row-cols">
-      <div class="col-md-8">
-        <table class="table table-striped text-right" id="my_font">
-          <thead>
-            <tr class="text-right font-weight-bold">
-              <td class ="text-left">State</td>
-              <td>Women </td>
-              <td>Men </td>
-              <td>Total </td>
-            </tr>
-          </thead>
-          <tbody>
-
-            {% for population in populations %}
-            <tr>
-              <td class="text-left">{{ population.getstate()}}</td>
-              <td>{{"{:,}".format(population.getfemale())}}</td>
-              <td>{{"{:,}".format(population.getmale())}}</td> 
-              <td>{{"{:,}".format(population.gettotal())}}</td>
-            </tr>
-
-            {% endfor %}
-          </tbody>
-        </table>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="card">
+          <div class="card-header text-white">
+            <h5 class="card-title">Population by State and Gender</h5>
+          </div>
+          <div class="card-body">
+            <table class="table table-striped text-right">
+              <thead>
+                <tr>
+                  <th class="text-left">State</th>
+                  <th>Women</th>
+                  <th>Men</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for population in populations %}
+                <tr>
+                  <td class="text-left">{{ population.state }}</td>
+                  <td>{{"{:,}".format(population.female)}}</td>
+                  <td>{{"{:,}".format(population.male)}}</td>
+                  <td>{{"{:,}".format(population.total)}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
 
       <script>
-        let arrpopulation = {{ populationsGra | tojson}}                                                      
+        let arrpopulation = {{ populationsGra | tojson }};
       </script>
-
-      <div class="col-md-4 ">
-        <div class="row justify-content-center mt-4 mb-2 " >
-          <h4>Northrein by Genre</h4>
-        </div>
-
-        <div class="row">
-          <div id="grafico">
-            <canvas id="grafica"></canvas>
+      
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-header text-white">
+            <h5 class="card-title">Population by Gender</h5>
           </div>
-        </div>
-
-        <div class="row justify-content-center mt-4 mb-2">
-          <h4> Bayern by Genre</h4>
-        </div>
-
-        <div class="row">
-          <div id="grafico2">
-            <canvas id="grafica2"></canvas>
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">Northrein</h6>
+            <div class="chart-container">
+              <canvas id="grafica"></canvas>
+            </div>
+            <h6 class="card-subtitle mb-2 text-muted mt-4">Bayern</h6>
+            <div class="chart-container">
+              <canvas id="grafica2"></canvas>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-
-  
   {% endblock %}
 
   {% block footer %}
   {{ super() }}
   {% endblock %}
-</body>
-
 </html>

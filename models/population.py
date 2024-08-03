@@ -1,40 +1,41 @@
-class Population:
-    def __init__(self,id_population,id_state,id_sex,id_agerange,population):
-        self._id_popullation=id_population
-        self._id_state = id_state
-        self._id_sex=id_sex
-        self._id_agerange = id_agerange
-        self._population = population
+class Populationsx:
+    def __init__(self, state, female, male, total):
+        self._state = state
+        self._female = female
+        self._male = male
+        self._total = total
 
-    def getid_popullation(self):
-        return self._id_popullation
-    
-    def setid_popullation(self,x):
-        self._id_popullation =x
+    @property
+    def state(self):
+        return self._state
 
-    def getid_state(self):
-        return self._id_state
-       
-    def setid_state(self,x):
-        self._id_state =x
+    @state.setter
+    def state(self, value):
+        self._state = value
 
-    def getid_sex(self):
-        return self._id_sex
-    
-    def setid_sex(self,x):
-        self._id_sex =x
+    @property
+    def female(self):
+        return self._female
 
-    def getid_agerange(self):
-        return self._id_agerange
-    
-    def setid_agerange(self,x):
-        self._id_agerange =x  
-    
-    def getpopullation(self):
-        return self._popullation
+    @female.setter
+    def female(self, value):
+        self._female = value
 
-    def setid_popullation(self,x):
-        self._id_popullation =x  
+    @property
+    def male(self):
+        return self._male
+
+    @male.setter
+    def male(self, value):
+        self._male = value
+
+    @property
+    def total(self):
+        return self._total
+
+    @total.setter
+    def total(self, value):
+        self._total = value
 
  
  

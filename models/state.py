@@ -1,23 +1,29 @@
 class States:
-    def __init__(self,id_state,state,id_country):
+    def __init__(self, id_state, state, id_country):
         self._id_state = id_state
         self._state = state
         self._id_country = id_country
 
-    def getid_state(self):
+    @property
+    def id_state(self):
         return self._id_state
 
-    def setid_state(self,x):
-        self._id_state =x
+    @id_state.setter
+    def id_state(self, value):
+        self._id_state = value
 
-    def getstate(self):
+    @property
+    def state(self):
         return self._state
 
-    def setstate(self,x):
-        self._state =x
+    @state.setter
+    def state(self, value):
+        self._state = value
 
-    def getid_country(self):
+    @property
+    def id_country(self):
         return self._id_country
 
-    def setidcontry(self,x):
-        self._id_country =x 
+    @id_country.setter
+    def id_country(self, value):
+        self._id_country = value

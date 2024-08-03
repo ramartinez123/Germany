@@ -11,14 +11,18 @@ class Queries:
                 inner join population as pp on st.id_state=pp.id_state
                 inner join sex as sx on pp.id_sex=sx.id_sex
                 inner join agerange as ag on pp.id_ageRange=ag.id_ageRange"""
-        cur = mysql.connection.cursor()
-        cur.execute(query)  
-        answers=cur.fetchall()  
-        records = []
-        for answer in answers:
-            answer = Populationsx( answer[0],answer[1],answer [2],answer [3])
-            records.append(answer)
-        return records 
+        parameters = []
+        try:
+            answers = Inic.db_connect(query, parameters)
+            records = [Populationsx(answer[0], answer[1], answer[2]) for answer in answers]
+            """records = []
+            for answer in answers:
+                answer = Populationsx( answer[0],answer[1],answer [2],answer [3])
+                records.append(answer)"""
+            return records 
+        except Exception as e:
+            print(f"Error fetching states: {e}")
+            return []
     
     # consulta por sexo 
     def QuerySx():
@@ -29,19 +33,21 @@ class Queries:
                     from population as pp 
                             inner join states as st on pp.id_state=st.id_state
                             group by st.state"""
-        parameter=[]                        
-        answers = Inic.db_connect(query,parameter)
-        records = []
-        total1 =total2 = total3 =0
-        for answer in answers:
-            answer = Populationsx (answer[0],answer[1],answer[2],answer[3])
-            total1= total1 + answer.getfemale()
-            total2= total2 + answer.getmale()
-            total3= total3 + answer.gettotal()
-            records.append(answer)
-        total = Populationsx ("Total",total1,total2,total3)
-        records.append(total)
-        return records
+        parameter=[]  
+        try:                      
+            answers = Inic.db_connect(query,parameter)
+            records = []
+            total1 =total2 = total3 =0
+            for answer in answers:
+                answer = Populationsx (answer[0],answer[1],answer[2],answer[3])
+                total1= total1 + answer.female
+                total2= total2 + answer.male
+                total3= total3 + answer.total
+                records.append(answer)
+            records.append(Populationsx ("Total",total1,total2,total3))
+            return records
+        except Exception as e:
+            print(f"Error executing QuerySx: {e}")
 
     def QuerySxGra():
         query ="""SELECT sx.sex,
@@ -51,9 +57,12 @@ class Queries:
                             inner join sex as sx on pp.id_sex=sx.id_sex
                             WHERE sx.id_sex <> 3
                             group by sex"""
-        parameter=[]   
-        answers2 = Inic.db_connect(query,parameter)
-        return answers2   
+        parameter=[] 
+        try:  
+            answers2 = Inic.db_connect(query,parameter)
+            return answers2   
+        except Exception as e:
+            print(f"Error executing QuerySxGra: {e}")
  
     # consulta por sexo 
     def QueryAg():
@@ -106,7 +115,7 @@ class Queries:
         return answer
        
     def QueryPopMap():
-        query ="SELECT id_state, SUM(population) As Total from population group by id_state"
+        query ="SELECT id_state, SUM(population) As Total from population where id_sex <> 3 group by id_state"
         parameter=[] 
         answer =  Inic.db_connect(query,parameter)
         return answer

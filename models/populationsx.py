@@ -1,33 +1,41 @@
 class Populationsx:
-    def __init__(self,state,female,male,total):
-        self._state=state
+    def __init__(self, state, female, male, total):
+        self._state = state
         self._female = female
-        self._male= male
+        self._male = male
         self._total = total
 
-    def getstate(self):
+    @property
+    def state(self):
         return self._state
-    
-    def setstate(self,x):
-        self._state =x
 
-    def getfemale(self):
+    @state.setter
+    def state(self, value):
+        self._state = value
+
+    @property
+    def female(self):
         return self._female
-       
-    def setfemale(self,x):
-        self._female =x
 
-    def getmale(self):
+    @female.setter
+    def female(self, value):
+        self._female = value
+
+    @property
+    def male(self):
         return self._male
-    
-    def setmale(self,x):
-        self._male =x
 
-    def gettotal(self):
+    @male.setter
+    def male(self, value):
+        self._male = value
+
+    @property
+    def total(self):
         return self._total
-    
-    def settotal(self,x):
-        self._total =x  
+
+    @total.setter
+    def total(self, value):
+        self._total = value
     
 
 

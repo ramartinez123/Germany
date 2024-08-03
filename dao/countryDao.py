@@ -1,9 +1,8 @@
-from app import mysql
 from models.country import Countries
 from config.conf import Inic
 
 class Queries:   
-    def Query2() -> list[Countries]:  
+    def get_all_countries() -> list[Countries]:  
         query ="SELECT * FROM countries" 
         parameters=[]
         answers = Inic.db_connect(query,parameters)
@@ -13,26 +12,31 @@ class Queries:
             records.append(answer)
         return records 
             
-    def Insert(country:Countries) -> Countries:
+    def insert_country(country:Countries) -> None:
         query ="INSERT INTO countries (country) VALUES(%s)"
-        parameters=[country.getcountry()]
+        parameters=[country.country]
         Inic.db_insert(query,parameters)
 
-    def Update1(country:Countries)-> Countries: 
+    def get_country_by_id(country:Countries)-> Countries: 
         query="SELECT * FROM countries WHERE id_country = (%s)"
-        parameters=[country.getid_country()]
+        parameters=[country.id_country]
         answers= Inic.db_connect(query,parameters)
-        return answers
-
-    def Update2(country:Countries)-> Countries:
+        if answers:
+            return answers
+        return None
+        
+    def update_country(country:Countries)-> None:
         query ="UPDATE countries SET country =(%s) WHERE id_country =(%s)"
-        parameters= [country.getcountry(),country.getid_country()]
+        parameters= [country.country,country.id_country]
         Inic.db_insert(query,parameters)  
     
-    def Delete(country:Countries)-> Countries:
+    def delete_country(country_id:int)-> None:
         query="DELETE FROM countries WHERE id_country =(%s)"
-        parameters = [country.getid_country()]
-        Inic.db_insert(query,parameters) 
+        parameters = [country_id]
+        try:
+            Inic.db_insert(query, parameters)
+        except Exception as e:
+            print(f"Error deleting state: {e}")
  
         
         

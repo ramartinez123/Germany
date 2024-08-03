@@ -3,17 +3,46 @@ html{
 }
 
 body{
-    min-height: 100%;
-    position: relative;
-    padding-bottom: 3em;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+}
+
+.card {
+    margin-bottom: 20px;
+  }
+
+.card .card-header{
+    background-color: #67823a ; 
+    padding: 1em; 
+    
+}
+
+.table thead th {
+    background-color: #67823a;
+    color: white;
+    font-weight: bold;
+  }
+ 
+.chart-container{
+    width: 200px; /* Ajusta el ancho según tus necesidades */
+    height: 200px; /* Ajusta la altura según tus necesidades */
+}
+
+#chart-container3{
+    width: 300px; /* Ajusta el ancho según tus necesidades */
+    height: 300px; /* Ajusta la altura según tus necesidades */
+}
+
+#chart-container4{
+    width: 600px; /* Ajusta el ancho según tus necesidades */
+    height: 300px; /* Ajusta la altura según tus necesidades */
 }
 
 /*navbar footer*/
-.navbar,footer, #ttittle, #ttittle2 {
+.navbar,footer,.white-color {
     background-color: #67823a;
-}
-
-.white-color,#color_text_footer,#ttittle , #ttittle2{
     color: white;
 }
 
@@ -21,32 +50,20 @@ body{
     width: 60px;
 }
 
-#contnav{
-    width: 100%;
-    margin-left: 30px;
-    margin-right: 30px;
+#contnav {
+    width: calc(100% - 60px);
+    margin: 0 auto;
 }
 
-footer{
-    position:relative;
-    bottom:0;
+footer {
+    margin-top: auto;
     width: 100%;
-    padding-left:  0;
-}
+    padding-left: 0;
+  }
 
 /*countries*/
 .btn {
     width: 40%
-}
-
-/*popullatinSx*/
-#grafico,#grafico2 { 
-    width: 420px;
-}
-
-/*editcountries editstates*/
-#sen, #sen2{
-    width: 17%;
 }
 
 

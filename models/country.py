@@ -1,16 +1,24 @@
 class Countries:
-    def __init__(self,id_country,country):
+    def __init__(self, id_country, country):
         self._id_country = id_country
         self._country = country
 
-    def getid_country(self):
+    @property
+    def id_country(self):
+        """Getter for id_country."""
         return self._id_country
 
-    def setid_country(self,x):
-        self._id_country =x
+    @id_country.setter
+    def id_country(self, value):
+        """Setter for id_country."""
+        self._id_country = value
 
-    def getcountry(self):
+    @property
+    def country(self):
+        """Getter for country."""
         return self._country
 
-    def setcountry(self,x):
-        self._country =x
+    @country.setter
+    def country(self, value):
+        """Setter for country."""
+        self._country = value

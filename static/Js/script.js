@@ -1,66 +1,72 @@
-
-const colors = ['#131a09','#293614','#4e6b21', '#719c30', '#67823a', '#99c255','#131a09',
-'#293614', '#4e6b21','#719c30','#67823a','#99c255', '#131a09','#293614', '#4e6b21','#719c30'];
+// Configuración del primer gráfico (grafica)
+const colors = ['#a8d5ba', '#6aab6b'];
 const colorsb = ['white'];
 const graph = document.querySelector("#grafica");
-const data_=[] 
-const label_= [] 
-console.log(arrpopulation)
-arrpopulation.forEach(element => data_.push(element[1]))
-arrpopulation.forEach(element => label_.push(element[0]))
-console.log(data_,label_)
-   
+
+// Asignar datos específicos para el primer gráfico
+const data_ = [];
+const label_ = [];
+arrpopulation.forEach(element => {
+  data_.push(element[1]); 
+  label_.push(element[0]);
+});
+
 const data = {
-        labels: label_,
-        datasets: [{
-            data: data_,
-            backgroundColor: colors,
-            borderColor: colorsb
-        }]
-    };
-    const config = {
-        type: 'pie',
-        data: data,
-        options:{
-             legend:{
-                display: false
-            }
-            
-        }
-        
-        
-    };
+  labels: label_,
+  datasets: [{
+    data: data_,
+    backgroundColor: colors,
+    borderColor: colorsb,
+    borderWidth: 1
+  }]
+};
+
+const config = {
+  type: 'pie',
+  data: data,
+  options:{
+       legend:{
+          display: false
+      }
+      
+  }
+};
 
 new Chart(graph, config);
 
-
-const colors2 = ['blue', 'red'];
+// Configuración del segundo gráfico (grafica2)
+const colors2 = ['#a8d5ba', '#6aab6b'];
 const graph2 = document.querySelector("#grafica2");
-const data_2=[] 
-const label_2= [] 
-arrpopulation.forEach(element => data_2.push(element[2]))
-arrpopulation.forEach(element => label_2.push(element[0]))
-console.log(data_2,label_2)
-   
-const data2 = {
 
-        labels: label_2,
-        datasets: [{
-            data: data_2,
-            backgroundColor: colors,
-            borderColor: colorsb
-        }]
-    };
-    const config2 = {
-        type: 'pie',
-        data: data2,
-        options:{
-            legend:{
-                display: false
-            }
-            
-        }
-    };
+// Asignar datos específicos para el segundo gráfico
+const data_2 = [];
+const label_2 = [];
+arrpopulation.forEach(element => {
+  data_2.push(element[2]); 
+  label_2.push(element[0]);
+});
+
+const data2 = {
+  labels: label_2,
+  datasets: [{
+    data: data_2,
+    backgroundColor: colors2,
+    borderColor: colorsb,
+    borderWidth: 1
+  }]
+};
+
+const config2 = {
+  type: 'pie',
+  data: data2,
+  options: {
+    plugins: {
+      legend: {
+        display: true
+      }
+    }
+  }
+};
 
 new Chart(graph2, config2);
 

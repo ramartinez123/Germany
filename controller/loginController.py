@@ -10,7 +10,7 @@ login_manager.login_view = 'auth.login'
 @app.route('/login2',methods=['GET', 'POST'])
 def login2():
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('index'))   
     form=NameForm()
     if form.validate_on_submit():
         user= get_user(form.name.data)

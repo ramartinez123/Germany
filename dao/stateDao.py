@@ -1,5 +1,5 @@
 from app import mysql
-from flask import render_template, request, redirect, url_for
+from flask import request
 from models.state import States
 from config.conf import Inic
 

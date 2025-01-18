@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block head %}
   {{ super() }}
 {% endblock %}
@@ -11,7 +10,7 @@
 
   {% block content %}
   <div class="container text-center">
-    <div class="col-md-6">
+    <div class="col-md-7">
       <!-- Formulario para agregar un nuevo país -->
       <form action='/countries/add_contact' method="POST">
         <div class="form-floating mb-4 mt-3">
@@ -31,8 +30,8 @@
         <tbody>
           {% for country in countries %}
           <tr>
-            <td>{{ country.country }}</td>
-            <td>
+            <td class="col-md-3">{{ country.country }}</td>
+            <td class="col-md-4">
               <a class="btn btn-primary" href="{{ url_for('get_contact', id=country.id_country) }}" role="button">Edit</a>
               <a class="btn btn-danger" href="{{ url_for('delete_contact', id=country.id_country) }}" role="button">Delete</a>
             </td>

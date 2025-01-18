@@ -62,11 +62,8 @@
                     legend: {
                         display: false
                     }
-                },
-  
-                
+                },            
             }
-
         };
 
     new Chart(graph3, config3);

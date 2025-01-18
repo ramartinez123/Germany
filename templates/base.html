@@ -50,15 +50,14 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> Mapas</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{ url_for('map')}} ">Poblacion </a></li>
-                <li></li><a class="dropdown-item" href="{{ url_for('unemployment')}} ">Desempleo </a>
               </ul>
             </li>
 
-            {% if current_user.is_authenticated %}
-            <li><a class="nav-link" href="{{ url_for('logout') }}">LogOut {{current_user.name}}</a></li>
+           <!-- {% if current_user.is_authenticated %}
+           <li><a class="nav-link" href="{{ url_for('logout') }}">LogOut </a></li>
             {% else %}
             <li><a class="nav-link" href="{{ url_for('login2') }}">LogIn </a></li>
-            {% endif %}
+            {% endif %} -->
           </ul>
         </div>
       </div>

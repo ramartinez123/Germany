@@ -12,7 +12,7 @@
 
     <div class="container text-center">
         
-        <div class="col-md-6 ">
+        <div class="col-md-8 ">
                 <form action='/states/add_contact' method="POST">
                     <div class="form-floating mb-4 mt-3">
                       <input type="text" class="form-control mb-2" id="stateInput" name="f_state" placeholder="State">
@@ -34,17 +34,15 @@
                         <tr>
                             <td class="col-md-2">{{ state.state}}</td>
                             <td class="col-md-1">{{ state.id_country}}</td>
-                            <td class="col-md-3">
-                                <a class="btn btn-primary " href="/states/edit/{{state.id_state}}" role="button">Edit</a>
+                            <td class="col-md-4">
+                                <a class="btn btn-primary" href="/states/edit/{{state.id_state}}" role="button">Edit</a>
                                 <a class="btn btn-danger" href="/states/delete/{{state.id_state}}" role="button">Delete</a>
                             </td>      
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
-            </div>
-        
-        
+              </div>     
     </div>
   {% endblock %}
   {% block footer %}  

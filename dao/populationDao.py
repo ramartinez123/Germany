@@ -15,10 +15,6 @@ class Queries:
         try:
             answers = Inic.db_connect(query, parameters)
             records = [Populationsx(answer[0], answer[1], answer[2]) for answer in answers]
-            """records = []
-            for answer in answers:
-                answer = Populationsx( answer[0],answer[1],answer [2],answer [3])
-                records.append(answer)"""
             return records 
         except Exception as e:
             print(f"Error fetching states: {e}")
@@ -99,20 +95,7 @@ class Queries:
         cur.execute(query)  
         answer=cur.fetchall()
         return answer 
-    
-    def QueryCi():
-        query ="SELECT city, density, population FROM cities"
-        cur = mysql.connection.cursor()      
-        cur.execute(query)                
-        answer=cur.fetchall()              
-        return answer
-    
-    def QueryCi2():
-        query ="SELECT city, density, population FROM cities where id_city <> 8"
-        cur = mysql.connection.cursor()
-        cur.execute(query)  
-        answer=cur.fetchall()
-        return answer
+      
        
     def QueryPopMap():
         query ="SELECT id_state, SUM(population) As Total from population where id_sex <> 3 group by id_state"

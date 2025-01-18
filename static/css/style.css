@@ -25,19 +25,20 @@ body{
     font-weight: bold;
   }
  
+
 .chart-container{
     width: 200px; /* Ajusta el ancho según tus necesidades */
     height: 200px; /* Ajusta la altura según tus necesidades */
 }
 
 #chart-container3{
-    width: 300px; /* Ajusta el ancho según tus necesidades */
-    height: 300px; /* Ajusta la altura según tus necesidades */
+    width: 240px; /* Ajusta el ancho según tus necesidades */
+    height: 240px; /* Ajusta la altura según tus necesidades */
 }
 
 #chart-container4{
-    width: 600px; /* Ajusta el ancho según tus necesidades */
-    height: 300px; /* Ajusta la altura según tus necesidades */
+    width: 570px; /* Ajusta el ancho según tus necesidades */
+    height: 280px; /* Ajusta la altura según tus necesidades */
 }
 
 /*navbar footer*/
